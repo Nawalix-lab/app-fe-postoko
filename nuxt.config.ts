@@ -25,6 +25,12 @@ export default defineNuxtConfig({
       "Notify",
       "Dark",
     ],
+    sassVariables: true,
+    config: {
+      brand: {
+        primary: "#57A3C2",
+      },
+    },
     extras: {
       font: "roboto-font",
     },

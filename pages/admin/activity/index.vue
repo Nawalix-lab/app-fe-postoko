@@ -24,6 +24,7 @@
 
             <div class="q-gutter-sm">
               <q-btn
+                v-if="hasCreate"
                 outline
                 flat
                 round
@@ -36,6 +37,7 @@
               </q-btn>
 
               <q-btn
+                v-if="hasEdit"
                 outline
                 flat
                 round
@@ -48,6 +50,7 @@
               </q-btn>
 
               <q-btn
+                v-if="hasDelete"
                 outline
                 flat
                 round
@@ -98,7 +101,20 @@ const columns = ref([
 const rows = ref([]);
 const selected = ref([]);
 const router = useRouter();
+const route = useRoute();
 const store = useStore();
+
+const hasCreate = computed(() =>
+  hasPermissions({ path: route.fullPath, action: "create" }),
+);
+
+const hasEdit = computed(() =>
+  hasPermissions({ path: route.fullPath, action: "edit" }),
+);
+
+const hasDelete = computed(() =>
+  hasPermissions({ path: route.fullPath, action: "delete" }),
+);
 
 const onCreteActivity = () => {
   router.push("/admin/activity/form-input");
@@ -149,6 +165,7 @@ const onEditItem = () => {
   store.commit("activity/setActivity", selected.value[0]);
   router.push("/admin/activity/form-input");
 };
+
 onNuxtReady(() => {
   onLoadData();
 });

@@ -5,6 +5,35 @@ const INITIAL_MENU = [
     href: "/",
   },
   {
+    name: "Sale",
+    icon: {
+      class: "material-symbols-outlined",
+      text: "admin_panel_settings",
+    },
+    children: [
+      {
+        href: "/sale/promotions",
+        name: "Promotions",
+      },
+      {
+        href: "/sale/termsofpayment",
+        name: "Terms Of Payment",
+      },
+      {
+        href: "/sale/customer",
+        name: "Customer",
+      },
+      {
+        href: "/sale/salesorder",
+        name: "Sales Order",
+      },
+      {
+        href: "/sale/transaction",
+        name: "Transaction",
+      },
+    ],
+  },
+  {
     name: "Admin",
     icon: {
       class: "material-symbols-outlined",

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <CustomeTitle icon="font_download" label="Input Header" />
+    <CustomeTitle icon="font_download" label="Add new item" />
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Customer Code </label>
+        <label class="text-bold">Product Code </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -15,7 +15,7 @@
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Customer Name </label>
+        <label class="text-bold">Product Name </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -26,7 +26,18 @@
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Term Of Payment </label>
+        <label class="text-bold">Product Category </label>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <span class="custom-input">
+          <q-input outlined dense hide-bottom-space />
+        </span>
+      </div>
+    </div>
+
+    <div class="row q-mb-sm items-center">
+      <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <label class="text-bold">Barand </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -37,7 +48,7 @@
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Bank Account</label>
+        <label class="text-bold">Qty </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -48,7 +59,7 @@
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Validity Period</label>
+        <label class="text-bold">Unit </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -59,7 +70,29 @@
 
     <div class="row q-mb-sm items-center">
       <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <label class="text-bold">Description</label>
+        <label class="text-bold">Buy price </label>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <span class="custom-input">
+          <q-input outlined dense hide-bottom-space requird />
+        </span>
+      </div>
+    </div>
+
+    <div class="row q-mb-sm items-center">
+      <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <label class="text-bold">Sel Price </label>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <span class="custom-input">
+          <q-input outlined dense hide-bottom-space requird />
+        </span>
+      </div>
+    </div>
+
+    <div class="row q-mb-sm items-center">
+      <div class="text-right q-pr-md col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <label class="text-bold">Description </label>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <span class="custom-input">
@@ -78,10 +111,15 @@
             unelevated
             type="button"
             color="primary"
-            label="Next"
-            @click="onNext"
+            label="Add Item"
+            @click="onAddItem"
           />
-          <q-btn unelevated color="negative" label="Cancel" @click="onReset" />
+          <q-btn
+            unelevated
+            color="negative"
+            label="Cancel"
+            @click="onCancelItem"
+          />
         </div>
       </div>
     </div>
@@ -89,12 +127,11 @@
 </template>
 
 <script setup>
-const emits = defineEmits(["on-next", "on-reset"]);
-
-const onNext = () => {
-  emits("on-next");
+const emits = defineEmits(["on-add-item", "on-cancel-item"]);
+const onAddItem = () => {
+  emits("on-add-item");
 };
-const onReset = () => {
-  emits("on-reset");
+const onCancelItem = () => {
+  emits("on-cancel-item");
 };
 </script>

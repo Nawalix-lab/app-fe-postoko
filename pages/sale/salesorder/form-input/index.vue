@@ -37,7 +37,11 @@
               @on-next="onNext"
               @on-reset="onReset"
             />
-            <ModuleSalesorderFormItem v-if="step === 1" />
+            <ModuleSalesorderItem
+              v-if="step === 1"
+              @on-next="onNext"
+              @on-reset="onReset"
+            />
           </q-form>
         </ClientOnly>
       </q-card-section>
@@ -53,9 +57,18 @@ const onBack = () => {
   router.go(-1);
 };
 const onSubmit = () => {};
-const onReset = () => {};
+const onReset = () => {
+  console.log("step", step.value);
+  if (step.value === 0) {
+    router.go(-1);
+  }
+  step.value = step.value - 1;
+};
 
 const onNext = () => {
+  if (step.value === 1) {
+    router.push("/sale/salesorder/form-input/preview");
+  }
   step.value++;
 };
 </script>

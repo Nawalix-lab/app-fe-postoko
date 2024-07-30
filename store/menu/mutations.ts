@@ -34,6 +34,39 @@ const INITIAL_MENU = [
     ],
   },
   {
+    name: "Purchasing",
+    icon: {
+      class: "material-symbols-outlined",
+      text: "admin_panel_settings",
+    },
+    children: [
+      {
+        href: "/purchasing/vendor",
+        name: "Vendor",
+      },
+      {
+        href: "/purchasing/order",
+        name: "Order",
+      },
+      {
+        href: "/purchasing/reception",
+        name: "Reception",
+      },
+      {
+        href: "/purchasing/retur",
+        name: "Retur",
+      },
+      {
+        href: "/purchasing/invoice-ap",
+        name: "Invoice AP",
+      },
+      {
+        href: "/purchasing/debt-aging",
+        name: "Debt Aging",
+      },
+    ],
+  },
+  {
     name: "Admin",
     icon: {
       class: "material-symbols-outlined",

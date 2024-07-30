@@ -13,8 +13,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     saltRounds: 10,
-    mongodbUri: process.env.MONGODB_URI,
-    secretKey: process.env.SECRET_KEY,
+    mongodbUri: process.env.NUXT_MONGODB_URI,
+    secretKey: process.env.NUXT_SECRET_KEY,
   },
   quasar: {
     plugins: [
